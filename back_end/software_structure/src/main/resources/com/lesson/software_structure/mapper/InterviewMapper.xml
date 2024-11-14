@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lesson.software_structure.mapper.InterviewMapper">
+    <insert id="createInterview">
+        insert into software_structure.interviews (candidate_id, interviewer_id, score, comments, date)
+        VALUES (#{candidateId},#{interviewerId},#{score},#{comments},#{date})
+    </insert>
+    <update id="updateInterviewScore">
+        update software_structure.interviews
+        set score=#{score}
+        where id=#{interviewId}
+    </update>
+    <select id="getInterviewsByCandidateId" resultType="com.lesson.software_structure.pojo.Interview">
+        select * from software_structure.interviews where candidate_id=#{candidateId}
+    </select>
+</mapper>
