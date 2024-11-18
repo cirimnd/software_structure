@@ -12,9 +12,9 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
     @Override
-    public User login(String username, String password) {
+    public User login(String username, String password,String role) {
         User user = userMapper.findUserByUsername(username);
-        if (user != null && user.getPassword().equals(password)) {
+        if (user != null && user.getPassword().equals(password)&&user.getRole().equals(role)) {
             return user;
         }
         return null;

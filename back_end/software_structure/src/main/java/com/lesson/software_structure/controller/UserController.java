@@ -17,7 +17,13 @@ public class UserController {
 
     @PostMapping("/login")
     public Result login(@RequestBody User user) {
-        User loggedInUser = userService.login(user.getUsername(), user.getPassword());
+        User loggedInUser = userService.login(user.getUsername(), user.getPassword(),user.getRole());
+        if(user.getRole()==null){
+            return Result.error("请输入角色");
+        }
+        else if(user.getPassword()==null){
+            return Result.error("请输入密码");
+        }
         if (loggedInUser != null) {
             return Result.success("登录成功");
         }

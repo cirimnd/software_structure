@@ -11,7 +11,7 @@ import java.util.List;
 public interface QuestionMapper {
 
     @Insert("insert into software_structure.question (question_text, correct_answer) VALUES " +
-            "(#{questionText},#{shortAnswer})")
+            "(#{questionText},#{correctAnswer})")
     void add(Question question);
 
     List<Question> getQuestionByIds(List<Long> ids);
