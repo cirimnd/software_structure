@@ -3,9 +3,9 @@ spring:
     name: springboot_example
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/software_structure
+    url: jdbc:mysql://localhost:3306/db01
     username: root
-    password: "040428"
+    password: "123456"
   servlet:
     multipart:
       max-file-size: 10MB
