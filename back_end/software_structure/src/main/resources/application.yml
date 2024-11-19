@@ -25,5 +25,26 @@ logging:
   level:
     org.springframework.jdbc.support.JdbcTransactionManager: debug
 
+# HTTP服务器端口配置
+http:
+  port: 80
+
+# 服务器配置
+server:
+  # HTTPS服务端口配置
+  port: 443
+  ssl:
+    # SSL密钥库文件路径
+    key-store: https.keystore
+    # 密钥库中的别名
+    key-alias: tomcat
+    # 是否启用SSL
+    enabled: true
+    # 密钥库密码
+    key-store-password: 123456
+    # 密钥库类型（Java KeyStore）
+    key-store-type: JKS
+
+
 #显示sql语句
 
