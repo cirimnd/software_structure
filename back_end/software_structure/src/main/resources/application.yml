@@ -3,7 +3,7 @@ spring:
     name: springboot_example
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306
+    url: jdbc:mysql://localhost:3306/software_structure
     username: root
     password: "040428"
   servlet:
