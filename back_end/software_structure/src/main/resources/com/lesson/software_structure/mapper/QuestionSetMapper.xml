@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lesson.software_structure.mapper.QuestionSetMapper">
+
+    <!-- 根据id获取特定题信息 -->
+    <select id="getQuestionSetById" resultType="com.lesson.software_structure.pojo.QuestionSet">
+        SELECT * FROM question_sets WHERE id = #{id}
+    </select>
+    <!-- 获取所有题集信息 -->
+    <select id="getAllQuestionSets" resultType="com.lesson.software_structure.pojo.QuestionSet">
+        SELECT * FROM question_sets
+    </select>
+
+    <!-- 根据question_set_id列表获取对应的套题信息列表 -->
+    <select id="getQuestionSetsByIds" resultType="com.lesson.software_structure.pojo.QuestionSet">
+        SELECT * FROM question_sets WHERE id IN
+        <foreach collection="questionSetIds" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </select>
+    <select id="getQuestionIdsByQuestionSetId" resultMap="QuestionResultMap">
+        SELECT q.* FROM question q JOIN question_set_question qsq ON q.id = qsq.question_id WHERE qsq.question_set_id = #{id}
+    </select>
+    <resultMap id="QuestionResultMap" type="com.lesson.software_structure.pojo.Question">
+        <id property="id" column="id"/>
+        <result property="questionText" column="question_text"/>
+        <result property="correctAnswer" column="correct_answer"/>
+    </resultMap>
+
+
+</mapper>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lesson.software_structure.mapper.QuestionBankMapper">
+
+    <!-- 获取所有题库信息 -->
+    <select id="getAllQuestionBanks" resultType="com.lesson.software_structure.pojo.QuestionBank">
+        SELECT * FROM question_banks
+    </select>
+
+    <!-- 根据id获取特定题库信息 -->
+    <select id="getQuestionBankById" resultType="com.lesson.software_structure.pojo.QuestionBank">
+        SELECT * FROM question_banks WHERE id = #{id}
+    </select>
+    <!-- 根据题库id获取其下所有关联的套题信息（通过关联中间表和question_sets表） -->
+    <select id="getQuestionSetIdsByQuestionBankId" resultMap="QuestionSetResultMap">
+        SELECT qs.*
+        FROM question_sets qs
+                 JOIN question_bank_question_set qqs ON qs.id = qqs.question_set_id
+        WHERE qqs.question_bank_id = #{id}
+    </select>
+    <!-- 结果映射，用于获取套题信息 -->
+    <resultMap id="QuestionSetResultMap" type="com.lesson.software_structure.pojo.QuestionSet">
+        <id property="id" column="id"/>
+        <result property="questionBankId" column="question_bank_id"/>
+        <result property="title" column="title"/>
+        <result property="description" column="description"/>
+    </resultMap>
+
+</mapper>
