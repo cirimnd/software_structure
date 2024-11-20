@@ -1,21 +1,11 @@
-server:
-  ssl:
-    key-store: classpath:keystore.jks
-    key-password: 123456
-    key-store-type: JKS
-    key-alias: tomcat
-#    enabled: true
-#    protocol: TLS
-  port: 444
-
 spring:
   application:
     name: springboot_example
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/db01
+    url: jdbc:mysql://localhost:3306
     username: root
-    password: "123456"
+    password: "040428"
   servlet:
     multipart:
       max-file-size: 10MB
@@ -37,15 +27,15 @@ logging:
 
 # HTTP服务器端口配置
 http:
-  port: 80
+  port: 8080
 
 # 服务器配置
 server:
   # HTTPS服务端口配置
-  port: 443
+  port: 444
   ssl:
     # SSL密钥库文件路径
-    key-store: https.keystore
+    key-store: classpath:https.keystore
     # 密钥库中的别名
     key-alias: tomcat
     # 是否启用SSL

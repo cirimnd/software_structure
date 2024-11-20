@@ -10,7 +10,7 @@ import java.util.List;
 @Mapper
 public interface QuestionMapper {
 
-    @Insert("insert into db01.question(question_text, correct_answer) VALUES " +
+    @Insert("insert into question (question_text, correct_answer) VALUES " +
             "(#{questionText},#{correctAnswer})")
     void add(Question question);
 
