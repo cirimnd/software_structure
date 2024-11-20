@@ -33,4 +33,13 @@ public class QuestionController {
         return Result.success("删除成功");
     }
 
+    @PutMapping("/change")
+    public Result chaQuestionByIds(@RequestBody Question questions,@PathVariable List<Long> ids)
+    {
+        questionService.changeQuestionByIds(questions,ids);
+        return  Result.success("修改成功");
+
+    }
+
+
 }

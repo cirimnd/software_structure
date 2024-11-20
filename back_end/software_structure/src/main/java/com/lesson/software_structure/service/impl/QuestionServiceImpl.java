@@ -3,6 +3,7 @@ package com.lesson.software_structure.service.impl;
 import com.lesson.software_structure.mapper.QuestionMapper;
 import com.lesson.software_structure.pojo.Question;
 import com.lesson.software_structure.service.QuestionService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,4 +28,11 @@ public class QuestionServiceImpl implements QuestionService {
     public void delQuestionByIds(List<Long> ids) {
         questionMapper.delQuestionByIds(ids);
     }
+
+    @Override
+    public void changeQuestionByIds(Question questions, List<Long> ids) {
+
+    }
+
+
 }
