@@ -19,7 +19,7 @@ public class CandidateController {
         if (candidate != null) {
             return Result.success(candidate);
         }
-        return Result.error("考生不存在，登录失败");
+        return Result.error("考生不存在");
     }
 
     @PostMapping("/register")
