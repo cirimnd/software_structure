@@ -1,3 +1,13 @@
+server:
+  ssl:
+    key-store: classpath:keystore.jks
+    key-password: 123456
+    key-store-type: JKS
+    key-alias: tomcat
+#    enabled: true
+#    protocol: TLS
+  port: 444
+
 spring:
   application:
     name: springboot_example
