@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lesson.software_structure.mapper.InterviewMapper">
     <insert id="createInterview">
-        insert into software_structure.interviews (candidate_id, interviewer_id, score, comments, date)
+        insert into interviews (candidate_id, interviewer_id, score, comments, date)
         VALUES (#{candidateId},#{interviewerId},#{score},#{comments},#{date})
     </insert>
     <update id="updateInterviewScore">

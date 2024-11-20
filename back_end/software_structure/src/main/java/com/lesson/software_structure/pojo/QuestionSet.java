@@ -7,8 +7,6 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Getter
-@Setter
 public class QuestionSet {
     private Long id;
     private Long questionBankId;

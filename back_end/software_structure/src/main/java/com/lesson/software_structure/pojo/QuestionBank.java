@@ -8,8 +8,6 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
-@Getter
 public class QuestionBank {
     private Long id;
     private String name;//题库名称
