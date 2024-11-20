@@ -10,4 +10,6 @@ public interface QuestionService {
     List<Question> getQuestionByIds(List<Long> ids);
 
     void delQuestionByIds(List<Long> ids);
+
+    void changeQuestionByIds(Question questions, List<Long> ids);
 }
