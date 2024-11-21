@@ -29,4 +29,21 @@ public class QuestionSetServiceImpl implements QuestionSetService {
     public List<Question> getQuestionIdsByQuestionSetId(Long id) {
         return questionSetMapper.getQuestionIdsByQuestionSetId(id);
     }
+
+    @Override
+    public boolean deleteQuestionSetById(Long id) {
+        return questionSetMapper.deleteQuestionSetById(id) > 0;
+    }
+
+    @Override
+    public Long addQuestionSet(QuestionSet questionSet) {
+        int rows = questionSetMapper.addQuestionSet(questionSet);
+        if (rows > 0) {
+            // 插入成功后，主键 ID 会自动回填到 questionSet 的 id 属性中
+            return questionSet.getId();
+        }
+        // 如果插入失败，返回 null 或抛出异常
+        return null;
+
+    }
 }
