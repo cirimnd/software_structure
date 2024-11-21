@@ -24,7 +24,10 @@ public class QuestionController {
     @GetMapping("/{ids}")
     public Result getQuestionByIds(@PathVariable List<Long> ids) {
         List<Question> question=questionService.getQuestionByIds(ids);
-        return Result.success(question);
+        if(!question.isEmpty()) {
+            return Result.success(question);
+        }
+        return Result.error("问题不存在");
     }
 
     @DeleteMapping("/{ids}")

@@ -5,7 +5,7 @@ import lombok.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class QuestionBank {

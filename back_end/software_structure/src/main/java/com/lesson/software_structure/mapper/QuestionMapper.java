@@ -22,7 +22,7 @@ public interface QuestionMapper {
 //            "</foreach>",
 //            "</script>"
 //    })
-    List<Question> getQuestionByIds(@Param("list") List<Long> ids);
+    List<Question> getQuestionByIds(List<Long> ids);
 
 //    @Select("SELECT * FROM question WHERE id = #{id}")
 //    List<Question> getQuestionByIds(List<Long> ids);
@@ -53,5 +53,5 @@ public interface QuestionMapper {
 //        "</foreach>",
 //        "</script>"
 //})
-    void delQuestionByIds(@Param("list") List<Long> ids);
+    void delQuestionByIds(List<Long> ids);
 }

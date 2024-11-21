@@ -32,7 +32,8 @@ public class HttpsConfig {
                 SecurityConstraint securityConstraint = new SecurityConstraint();
                 securityConstraint.setUserConstraint("CONFIDENTIAL"); // 设置约束
                 SecurityCollection collection = new SecurityCollection();
-                collection.addPattern("/*"); // 所有的路径全部进行重定向处理
+                collection.addPattern("/*");
+                collection.addMethod(DEFAULT_PROTOCOL);// 所有的路径全部进行重定向处理
                 securityConstraint.addCollection(collection);
                 context.addConstraint(securityConstraint);
             }
