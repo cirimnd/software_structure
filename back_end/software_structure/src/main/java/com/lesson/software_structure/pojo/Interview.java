@@ -7,8 +7,6 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
 public class Interview {
     private Long id;
     private Long candidateId;

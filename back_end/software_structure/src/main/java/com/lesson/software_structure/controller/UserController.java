@@ -32,6 +32,18 @@ public class UserController {
 
     @PostMapping("/register")
     public Result register(@RequestBody User user) {
+        if(user.getPassword()==null)
+        {
+            return Result.error("密码为空");
+        }
+        if(user.getUsername()==null)
+        {
+            return Result.error("用户名为空");
+        }
+        User userIn = userService.findUserByUsername(user.getUsername());
+        if(userIn!=null){
+            return Result.error("用户已存在");
+        }
         userService.registerUser(user);
         return Result.success("注册成功");
     }

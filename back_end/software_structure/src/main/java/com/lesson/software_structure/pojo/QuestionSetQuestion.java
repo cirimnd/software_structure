@@ -5,8 +5,6 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Getter
-@Setter
 public class QuestionSetQuestion {
     private Long questionSetId;
     private Long questionId;

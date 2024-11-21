@@ -2,8 +2,6 @@ package com.lesson.software_structure.pojo;
 
 import lombok.*;
 
-@Setter
-@Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
