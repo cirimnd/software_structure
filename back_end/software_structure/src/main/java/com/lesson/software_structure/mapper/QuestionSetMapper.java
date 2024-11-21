@@ -3,7 +3,10 @@ package com.lesson.software_structure.mapper;
 import com.lesson.software_structure.pojo.Question;
 import com.lesson.software_structure.pojo.QuestionBank;
 import com.lesson.software_structure.pojo.QuestionSet;
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Options;
 
 import java.util.List;
 @Mapper
@@ -20,4 +23,15 @@ public interface QuestionSetMapper {
 
     //获取所有题集信息
     List<QuestionSet> getAllQuestionSets();
+
+    @Insert("INSERT INTO question_sets (question_bank_id, title, description) " +
+            "VALUES (#{questionBankId}, #{title}, #{description})")
+    @Options(useGeneratedKeys = true, keyProperty = "id")
+    int addQuestionSet(QuestionSet questionSet);
+
+    // 删除指定ID的套题
+    @Delete("DELETE FROM question_sets WHERE id = #{id}")
+    int deleteQuestionSetById(Long id);
+
+
 }
