@@ -22,7 +22,7 @@ public interface QuestionMapper {
 //            "</foreach>",
 //            "</script>"
 //    })
-    List<Question> getQuestionByIds(List<Long> ids);
+    List<Question> getQuestionByIds(@Param("ids") List<Long> ids);
 
 //    @Select("SELECT * FROM question WHERE id = #{id}")
 //    List<Question> getQuestionByIds(List<Long> ids);

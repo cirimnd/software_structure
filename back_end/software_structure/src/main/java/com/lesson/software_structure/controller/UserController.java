@@ -18,25 +18,30 @@ public class UserController {
     @PostMapping("/login")
     public Result login(@RequestBody User user) {
         User loggedInUser = userService.login(user.getUsername(), user.getPassword(),user.getRole());
-        if(user.getRole()==null){
+        if(user.getRole()==null|| user.getRole().isEmpty()){
             return Result.error("请输入角色");
         }
-        else if(user.getPassword()==null){
+        else if(user.getPassword()==null|| user.getPassword().isEmpty()){
             return Result.error("请输入密码");
         }
-        if (loggedInUser != null) {
+        else if(user.getUsername()==null|| user.getUsername().isEmpty()){
+            return Result.error("请输入用户名");
+        }
+        else if (loggedInUser != null) {
             return Result.success("登录成功");
         }
-        return Result.error("用户不存在，登录失败");
+        else{
+            return Result.error("密码或角色输入错误，登录失败");
+        }
     }
 
     @PostMapping("/register")
     public Result register(@RequestBody User user) {
-        if(user.getPassword()==null)
+        if(user.getPassword()==null|| user.getPassword().isEmpty())
         {
             return Result.error("密码为空");
         }
-        if(user.getUsername()==null)
+        if(user.getUsername()==null|| user.getUsername().isEmpty())
         {
             return Result.error("用户名为空");
         }
