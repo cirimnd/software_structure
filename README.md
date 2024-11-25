@@ -2,7 +2,7 @@
 
 ---
 
-#### 一、点击[node官网]([Node.js — Run JavaScript Everywhere](https://nodejs.org/en) )下载node.js
+#### 一、点击 [node官网](https://nodejs.org/en) 下载node.js
 
 ##### 将nodejs的目录加入环境变量后，在cmd输入node -v有版本信息则加入成功
 
@@ -10,7 +10,7 @@
 
 ##### 执行以下命令
 
-`npm add -g pnpm`
+`npm i -g pnpm`
 
 `pnpm i`
 
