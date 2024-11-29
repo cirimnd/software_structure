@@ -1,0 +1,1 @@
+import{r as e}from"./request-BsTyHzWx.js";function s(t){return e.get("/questionSets/"+t)}function u(t){return e.get("/questionBanks/"+t)}function o(){return e.get("/questionBanks/all")}export{s as a,u as b,o as g};
