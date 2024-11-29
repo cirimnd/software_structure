@@ -17,6 +17,10 @@ public class UserServiceImpl implements UserService {
         if (user != null && user.getPassword().equals(password)&&user.getRole().equals(role)) {
             return user;
         }
+        else if(user!=null&&!user.getPassword().equals(password)){
+            user.setUsername("0");
+            return user;
+        }
         return null;
     }
 

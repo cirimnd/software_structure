@@ -27,11 +27,14 @@ public class UserController {
         else if(user.getUsername()==null|| user.getUsername().isEmpty()){
             return Result.error("请输入用户名");
         }
-        else if (loggedInUser != null) {
-            return Result.success("登录成功");
+        else if(loggedInUser==null){
+            return Result.error("用户不存在");
+        }
+        else if (loggedInUser.getUsername().equals("0")) {
+            return Result.error("密码错误，请重新输入！");
         }
         else{
-            return Result.error("密码或角色输入错误，登录失败");
+            return Result.error("登录失败");
         }
     }
 
