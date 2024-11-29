@@ -34,7 +34,7 @@ public class UserController {
             return Result.error("密码错误，请重新输入！");
         }
         else{
-            return Result.error("登录失败");
+            return Result.success("登录成功");
         }
     }
 
